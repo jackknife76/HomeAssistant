@@ -1,0 +1,6 @@
+volume_mute:
+  alias: Mute
+  sequence:
+  - service: media_player.volume_mute
+    data:
+      entity_id: media_player.onkyo_receiver

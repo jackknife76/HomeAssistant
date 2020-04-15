@@ -1,0 +1,8 @@
+platform: google
+cal_id: family
+entities:
+- device_id: !secret family_device_id
+  ignore_availability: true
+  name: Family
+  track: true
+  max_results: 150

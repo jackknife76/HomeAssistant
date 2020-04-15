@@ -1,0 +1,9 @@
+#Mitra Presence Detection
+  - platform: template
+    sensors:
+      mitra_status:
+        value_template: '{{ states.input_select.mitra_status_dropdown.state }}'
+        friendly_name: 'Mitra Presence'
+      tom_status:
+        value_template: '{{ states.input_select.tom_status_dropdown.state }}'
+        friendly_name: 'Tom Presence'

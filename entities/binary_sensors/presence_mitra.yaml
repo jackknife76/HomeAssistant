@@ -1,0 +1,7 @@
+  - platform: template
+    sensors:
+      presence_yegor:
+        friendly_name: "Mitra"
+        value_template: "{{ is_state('input_boolean.is_mitra_home', 'on') }}"
+        device_class: presence
+        entity_picture_template: "/local/mitra_picture_bw.jpg"

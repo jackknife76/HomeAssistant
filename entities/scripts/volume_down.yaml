@@ -1,0 +1,6 @@
+volume_down:
+  alias: Volume Down
+  sequence:
+  - service: media_player.volume_down
+    data:
+      entity_id: media_player.onkyo_receiver

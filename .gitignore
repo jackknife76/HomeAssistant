@@ -1,0 +1,45 @@
+# Example .gitignore file for your config dir.
+# A * ensures that everything will be ignored.
+*
+
+# You can whitelist files/folders with !, these will not be ignored.
+!*.yaml
+!*.bak
+!*.html
+!*.svg
+!*.css
+!*.js
+!*.json
+!.gitignore
+!*.md
+!automations
+!Porch
+!people_status
+!customizations
+!entities
+!entities/**
+!esphome/**
+!esphome
+!integrations
+!node-red
+!panels
+!sensor
+!themes
+!www
+!*.png
+!images
+!custom_ui
+!floorplan
+!lib
+!.travis.yml
+!travis_secrets.yaml
+
+# Ignore folders.
+.storage
+.cloud
+.google.token
+
+# Ensure these YAML files are ignored, otherwise your secret data/credentials will leak.
+ip_bans.yaml
+secrets.yaml
+known_devices.yaml

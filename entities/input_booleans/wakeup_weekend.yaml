@@ -1,0 +1,4 @@
+    wakeup_weekend:
+      name: "Enable Wake-up on weekends"
+      initial: off # I disable the system on default on weekends
+      icon: mdi:calendar-blank  

@@ -1,0 +1,6 @@
+  onkyo_receiver_zone_2:
+    name: Zone 2 Volume
+    initial: 30
+    min: 0
+    max: 80
+    step: 1

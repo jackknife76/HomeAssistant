@@ -1,0 +1,6 @@
+'1584664450860':
+  alias: New Script
+  sequence:
+  - data: {}
+    entity_id: media_player.living_room_1
+    service: sonos.snapshot

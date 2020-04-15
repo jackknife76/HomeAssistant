@@ -1,0 +1,14 @@
+- id: 'nobody_home'
+  alias: 'Nobody home'
+  trigger:
+  - entity_id: group.people_status
+    for:
+      minutes: 10
+    from: 'on'
+    platform: state
+    to: 'off'
+  condition: []
+  action:
+  - data:
+      message: “Looks like there is nobody home now”
+    service: notify.push

@@ -1,0 +1,7 @@
+  - platform: template
+    sensors:
+      presence_tom:
+        friendly_name: "Tom"
+        value_template: "{{ is_state('input_boolean.is_tom_home', 'on') }}"
+        device_class: presence
+        entity_picture_template: "/local/tom_picture_bw.jpg"

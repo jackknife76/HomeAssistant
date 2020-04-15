@@ -1,0 +1,6 @@
+volume_up:
+  alias: Volume Up
+  sequence:
+  - service: media_player.volume_up
+    data:
+      entity_id: media_player.onkyo_receiver

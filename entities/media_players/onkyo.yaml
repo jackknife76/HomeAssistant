@@ -1,0 +1,5 @@
+media_player:
+  - platform: onkyo
+    host: !secret onkyo_host
+    name: onkyo_receiver
+#    max_volume: 100

@@ -1,0 +1,7 @@
+platform: google
+cal_id: en.usa#holiday@group.v.calendar.google.com
+entities:
+- device_id: holidays_in_united_states
+  ignore_availability: true
+  name: Holidays in United States
+  track: false

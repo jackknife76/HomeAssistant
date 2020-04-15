@@ -1,0 +1,48 @@
+  - alias: Onkyo Volume Slider Set
+    trigger:
+      - platform: state
+        entity_id: input_number.onkyo_receiver
+    condition:
+      - condition: state
+        entity_id: media_player.onkyo_receiver
+        state: 'on'
+    action:
+      - service: media_player.volume_set
+        data_template:
+          entity_id: media_player.onkyo_receiver
+          volume_level: '{{ states.input_number.onkyo_receiver.state | float / 80 }}'
+          
+  - alias: Onkyo Volume Slider Get
+    trigger:
+      platform: state
+      entity_id: media_player.onkyo_receiver
+    action:
+      service: input_number.set_value
+      data_template:
+        entity_id: input_number.onkyo_receiver
+        value: '{{ states.media_player.onkyo_receiver.attributes.volume_level | float * 80 }}'
+        
+
+  - alias: Onkyo Volume Slider Set Zone 2
+    trigger:
+      - platform: state
+        entity_id: input_number.onkyo_receiver_zone_2
+    condition:
+      - condition: state
+        entity_id: media_player.onkyo_receiver_zone_2
+        state: 'on'
+    action:
+      - service: media_player.volume_set
+        data_template:
+          entity_id: media_player.onkyo_receiver_zone_2
+          volume_level: '{{ states.input_number.onkyo_receiver_zone_2.state | float / 80 }}'
+          
+  - alias: Onkyo Volume Slider Get Zone 2
+    trigger:
+      platform: state
+      entity_id: media_player.onkyo_receiver_zone_2
+    action:
+      service: input_number.set_value
+      data_template:
+        entity_id: input_number.onkyo_receiver_zone_2
+        value: '{{ states.media_player.onkyo_receiver_zone_2.attributes.volume_level | float * 80 }}'

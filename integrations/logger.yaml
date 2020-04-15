@@ -1,0 +1,5 @@
+logger:
+  default: critical
+  logs:
+    #Log Level for Tesla Location
+    homeassistant.components.device_tracker.toms_car_location_tracker: warn

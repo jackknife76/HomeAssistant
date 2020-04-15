@@ -1,0 +1,33 @@
+alias: Mark person as just arrived
+trigger:
+  - platform: state
+    entity_id: input_boolean.is_mitra_home
+    from: 'off'
+    to: 'on'
+  - platform: state
+    entity_id: input_boolean.is_tom_home
+    from: 'off'
+    to: 'on'
+action:
+  - service: input_select.select_option
+    data_template:
+      entity_id: >
+        {% if trigger.entity_id == 'input_boolean.is_mitra_home' %}
+          input_select.mitra_status_dropdown
+        {% else %}
+          input_select.tom_status_dropdown
+        {% endif %}
+      option: >
+        {% if trigger.entity_id == 'input_boolean.is_mitra_home' %}
+          {% if states.input_select.mitra_status_dropdown.state == 'Just Left' %}
+            Home
+          {% else %}
+            Just Arrived
+          {% endif %}
+        {% else %}
+          {% if states.input_select.tom_status_dropdown.state == 'Just Left' %}
+            Home
+          {% else %}
+            Just Arrived
+          {% endif %}
+        {% endif %}

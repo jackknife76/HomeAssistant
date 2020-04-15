@@ -1,0 +1,10 @@
+#harmony sensor
+  - platform: template
+    sensors:
+      harmony_activity:
+        value_template: >
+          {% if is_state("remote.office", 'on') %}
+            {{ states.remote.office.attributes.current_activity }}
+          {% else %}
+            PowerOff
+          {% endif %}

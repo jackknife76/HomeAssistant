@@ -1,0 +1,7 @@
+platform: google
+cal_id: !secret dad_email
+entities:
+- device_id: !secret dad_device_id
+  ignore_availability: true
+  name: !secret dad_email
+  track: false

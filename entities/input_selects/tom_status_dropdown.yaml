@@ -1,0 +1,9 @@
+  tom_status_dropdown:
+    name: Tom_list
+    options:
+      - Home
+      - Just Arrived
+      - Just Left
+      - Away
+      - Extended Away
+    initial: Home

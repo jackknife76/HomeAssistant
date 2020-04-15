@@ -1,0 +1,31 @@
+  # Onkyo Receiver Volume Template Sensor  
+  - platform: template
+    sensors:
+      onkyo_volume:
+        value_template: >
+          {% if is_state('media_player.onkyo_receiver', 'on')  %}
+            {% set n = (states.media_player.onkyo_receiver.attributes.volume_level *0.8) | float %}
+            {{ '%.1f'%( n*100.0|round(0.0) ) }}
+          {% else %}
+            "0"
+          {% endif %}
+        friendly_name: Zone 1 Volume
+        unit_of_measurement: "%"
+        icon_template: mdi:volume-medium
+        
+        
+     # Onkyo Receiver Volume Template Sensor  
+  - platform: template
+    sensors:
+      onkyo_volume_zone_2:
+        value_template: >
+          {% if is_state('media_player.onkyo_receiver_zone_2', 'on')  %}
+            {% set n = (states.media_player.onkyo_receiver_zone_2.attributes.volume_level *0.8) | float %}
+            {{ '%.1f'%( n*100.0|round(0.0) ) }}
+          {% else %}
+            "0"
+          {% endif %}
+        friendly_name: Zone 2 Volume
+        unit_of_measurement: "%"
+        icon_template: mdi:volume-medium
+    

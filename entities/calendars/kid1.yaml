@@ -1,0 +1,7 @@
+platform: google
+cal_id: !secret kid1_email
+entities:
+- device_id: !secret kid1_device_id
+  ignore_availability: true
+  name: !secret kid1_email
+  track: false

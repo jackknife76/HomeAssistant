@@ -1,0 +1,20 @@
+- alias: Mark person as just left
+  trigger:
+    - platform: state
+      entity_id: input_boolean.is_mitra_home
+      from: 'on'
+      to: 'off'
+    - platform: state
+      entity_id: input_boolean.is_tom_home
+      from: 'on'
+      to: 'off'
+  action:
+    - service: input_select.select_option
+      data_template:
+        entity_id: >
+          {% if trigger.entity_id == 'input_boolean.is_mitra_home' %}
+            input_select.mitra_status_dropdown
+          {% else %}
+            input_select.tom_status_dropdown
+          {% endif %}
+        option: Just Left

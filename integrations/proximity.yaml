@@ -1,0 +1,7 @@
+#proximity:
+#  home_tesla:
+#    zone: home
+#    devices:
+#      - device_tracker.tesla_location
+#    tolerance: 10
+#    unit_of_measurement: mi

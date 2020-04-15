@@ -1,0 +1,4 @@
+alarm_control_panel:
+  platform: alarmdotcom
+  username: !secret alarm_user
+  password: !secret alarm_pass

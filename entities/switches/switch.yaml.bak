@@ -1,0 +1,120 @@
+- platform: template
+  switches:
+        # ZONE 1 MEDIA SWITCH
+        zone_1:
+          value_template: "{{ is_state('media_player.onkyo_receiver', 'on') }}"
+          turn_on:
+            service: media_player.turn_on
+            entity_id: media_player.onkyo_receiver
+          turn_off:
+            service: media_player.turn_off
+            entity_id: media_player.onkyo_receiver
+              
+        # ZONE 2 MEDIA SWITCH
+        zone_2:
+          value_template: "{{ is_state('media_player.onkyo_receiver_zone_2', 'on') }}"
+          turn_on:
+            service: media_player.turn_on
+            entity_id: media_player.onkyo_receiver_zone_2
+          turn_off:
+            service: media_player.turn_off
+            entity_id: media_player.onkyo_receiver_zone_2
+        
+        # Watch TV2 HARMONY ACTIVITY
+        tv:
+          value_template: "{{ is_state_attr('remote.office', 'current_activity', 'Watch TV 2') }}"
+          turn_on:
+            service: remote.turn_on
+            data:
+              entity_id: remote.office
+              activity: 'Watch TV 2'
+          turn_off:
+            service: remote.turn_on
+            data:
+              entity_id: remote.office
+              activity: 'PowerOff'
+        
+        # Listen to Music HARMONY ACTIVITY
+        music:
+          value_template: "{{ is_state_attr('remote.office', 'current_activity', 'Listen to Music') }}"
+          turn_on:
+            service: remote.turn_on
+            data:
+              entity_id: remote.office
+              activity: 'Listen to Music'
+          turn_off:
+            service: remote.turn_on
+            data:
+              entity_id: remote.office
+              activity: 'PowerOff'
+        
+        # Movie night HARMONY ACTIVITY
+        movie:
+          value_template: "{{ is_state_attr('remote.office', 'current_activity', 'Movie night') }}"
+          turn_on:
+            service: remote.turn_on
+            data:
+              entity_id: remote.office
+              activity: 'Movie night'
+          turn_off:
+            service: remote.turn_on
+            data:
+              entity_id: remote.office
+              activity: 'PowerOff'
+        # Watch TV2 HARMONY ACTIVITY
+        alexa:
+          value_template: "{{ is_state_attr('remote.office', 'current_activity', 'Alexa') }}"
+          turn_on:
+            service: remote.turn_on
+            data:
+              entity_id: remote.office
+              activity: 'Alexa'
+          turn_off:
+            service: remote.turn_on
+            data:
+              entity_id: remote.office
+              activity: 'PowerOff'
+        
+        # AUDIO 1, USED FOR ECHO AND MUSIC ZONE 1
+        audio_1:
+          value_template: "{{ is_state('switch.floating_outlet_switch', 'on') }}"
+          turn_on:
+            - service: switch.turn_on
+              entity_id: switch.floating_outlet_switch
+            - service: media_player.turn_on
+              entity_id: media_player.onkyo_receiver
+      #      - service: media_player.select_source
+      #        data:
+      #          entity_id: media_player.onkyo_receiver
+      #          source: Echo
+            - service: media_player.volume_set
+              data:
+                entity_id: media_player.onkyo_receiver
+                volume_level: 0.4
+          turn_off:
+            - service: switch.turn_off
+              entity_id: switch.floating_outlet_switch
+            - service: media_player.turn_off
+              entity_id: media_player.onkyo_receiver
+
+        # AUDIO 2, USED FOR ECHO AND MUSIC ZONE 2
+        audio_2:
+          value_template: "{{ is_state('switch.floating_outlet_switch', 'on') }}"
+          turn_on:
+            - service: switch.turn_on
+              entity_id: switch.floating_outlet_switch
+            - service: media_player.turn_on
+              entity_id: media_player.onkyo_receiver_zone_2
+        #    - service: media_player.select_source
+        #      data:
+        #        entity_id: media_player.onkyo_receiver_zone_2
+        #        source: Echo
+            - service: media_player.volume_set
+              data:
+                entity_id: media_player.onkyo_receiver_zone_2
+                volume_level: 0.5
+          turn_off:
+            - service: switch.turn_off
+              entity_id: switch.floating_outlet_switch
+            - service: media_player.turn_off
+              entity_id: media_player.onkyo_receiver_zone_2
