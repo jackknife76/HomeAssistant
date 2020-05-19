@@ -1,0 +1,3 @@
+rest_command:
+  kiosk_command:
+    url: !secret rest_url_kiosk_command

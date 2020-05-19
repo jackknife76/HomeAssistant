@@ -1,0 +1,36 @@
+type: picture-elements
+image: /local/images/floorplan/upstairs_lights_on.png
+elements:
+
+  # Lighting Overlays...
+  - type: image
+    entity: light.master_bedroom_dimmer
+    tap_action: none
+    hold_action: none
+    state_image:
+      "on": /local/images/floorplan/transparent_square.png
+      "off": /local/images/floorplan/mbr_off.png
+    style:
+      top: 50%
+      left: 50%
+      width: 100%
+  # Light Toggles...
+  - type: image
+    entity: light.master_bedroom_dimmer
+    tap_action:
+      action: Toggle
+    image: /local/images/floorplan/transparent_square.png
+    style:
+      top: 71%
+      left: 40.5%
+  # Floor Toggle
+  - type: service-button
+    title: 1st Floor
+    service: input_select.select_next
+    service_data:
+      entity_id: input_select.floorplan_floor
+    style:
+      top: 15%
+      left: 5%
+      background: "#eaeaea"
+      border-radius: 5%

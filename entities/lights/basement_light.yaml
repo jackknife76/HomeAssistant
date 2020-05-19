@@ -1,0 +1,9 @@
+- platform: mqtt
+  name: "Basement Light"
+  state_topic: "shellies/shelly1-C487F4/relay/0"
+  command_topic: "shellies/shelly1-C487F4/relay/0/command"
+  availability_topic: "shellies/shelly1-C487F4/online"
+  payload_on: "on"
+  payload_off: "off"
+  payload_available: "true"
+  payload_not_available: "false"

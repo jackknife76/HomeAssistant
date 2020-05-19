@@ -1,0 +1,24 @@
+- platform: rest
+  name: Kitchen Tablet
+  json_attributes:
+    - isScreenOn
+    - batteryLevel
+    - kioskMode
+    - screenBrightness
+    - motionDetectorState
+    - maintenanceMode
+    - appFreeMemory
+    - appUsedMemory
+    - totalFreeMemory
+    - totalUsedMemory
+    - hostname4
+    - ip4
+    - mac
+    - locationLatitude
+    - locationLongitude
+    - locationAltitude
+    - startUrl
+    - currentPage
+  resource: !secret tablet_info
+  value_template: '{{ value_json.isScreenOn }}'
+  scan_interval: 10

@@ -1,0 +1,47 @@
+type: picture-elements
+image: /local/images/floorplan/downstairs_lights_on.png
+elements:
+  #lighting overlay
+  - entity: switch.front_porch
+    hold_action: none
+    state_image:
+      'off': /local/images/floorplan/downstairs_porch_off.png
+      'on': /local/images/floorplan/transparent_square.png
+    style:
+      left: 50%
+      top: 50%
+      width: 100%
+    tap_action: none
+    type: image
+
+  - entity: device_tracker.toms_car_location_tracker
+    hold_action: none
+    state_image:
+      away: /local/images/floorplan/downstairs_car_away.png
+      home: /local/images/floorplan/transparent_square.png
+    style:
+      left: 50%
+      top: 50%
+      width: 100%
+    tap_action: none
+    type: image
+    #toggles
+  - entity: switch.front_porch
+    image: /local/images/floorplan/transparent_square.png
+    style:
+      left: 82%
+      top: 63%
+    tap_action:
+      action: toggle
+    type: image
+    #floor toggle
+  - service: input_select.select_next
+    service_data:
+      entity_id: input_select.floorplan_floor
+    style:
+      background: '#eaeaea'
+      border-radius: 5%
+      left: 5%
+      top: 15%
+    title: 2nd Floor
+    type: service-button

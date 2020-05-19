@@ -1,0 +1,6 @@
+---
+# This loads up my light configurations
+#
+# https://www.home-assistant.io/integrations/media_player/
+#
+light: !include_dir_merge_list ../entities/lights

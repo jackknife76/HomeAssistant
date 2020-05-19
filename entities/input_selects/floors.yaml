@@ -1,0 +1,7 @@
+  floorplan_floor:
+    name: The select floor to show when viewing the floorplan.
+    options:
+      - "1st Floor"
+      - "2nd Floor"
+    initial: "1st Floor"
+    icon: mdi:floor-plan

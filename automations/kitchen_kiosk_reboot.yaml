@@ -1,0 +1,11 @@
+- id: '1588704430620'
+  alias: Restart the Fully Browser at 4am
+  description: ''
+  trigger:
+  - at: '04:00'
+    platform: time
+  condition: []
+  action:
+  - data:
+      cmd: restartApp
+    service: python_script.fully

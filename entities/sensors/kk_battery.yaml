@@ -1,0 +1,6 @@
+- platform: template
+  sensors:
+    kitchen_tablet_battery:
+      friendly_name: "Kitchen Tablet Battery Level"
+      unit_of_measurement: '%'
+      value_template: "{{ state_attr(sensor.kitchen_tablet,'batteryLevel') }}"
