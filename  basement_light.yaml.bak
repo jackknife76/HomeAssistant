@@ -1,5 +1,5 @@
 - platform: mqtt
-  name: "Basement Light"
+  name: "Office Light"
   state_topic: "shellies/shelly1-C487F4/relay/0"
   command_topic: "shellies/shelly1-C487F4/relay/0/command"
   availability_topic: "shellies/shelly1-C487F4/online"

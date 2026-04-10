@@ -1,6 +1,6 @@
   - platform: template
     sensors:
-      presence_yegor:
+      presence_mitra:
         friendly_name: "Mitra"
         value_template: "{{ is_state('input_boolean.is_mitra_home', 'on') }}"
         device_class: presence

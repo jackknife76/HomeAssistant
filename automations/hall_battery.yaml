@@ -1,0 +1,8 @@
+- id: '1651273975100'
+  alias: Hall battery
+  description: ''
+  use_blueprint:
+    path: vorion/battery_cycling.yaml
+    input:
+      switch: switch.downstairs_hall
+      phone_battery: sensor.hall_battery

@@ -1,5 +1,5 @@
 - platform: rest
-  name: Kitchen Tablet Settings
+  name: Hall Tablet Settings
   json_attributes:
     - timeToScreenOffV2
     - screenBrightness

@@ -3,4 +3,4 @@ input_datetime:
     name: "Start lights at"
     has_time: true
     has_date: false
-    initial: "06:10"
+    initial: "07:10"

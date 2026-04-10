@@ -1,5 +1,1 @@
-#mqtt:
-#  broker: !secret mqtt_broker
-#  username: !secret mqtt_user
-#  password: !secret mqtt_pass
-#  discovery: True
+!include_dir_merge_named ../entities/mqtts

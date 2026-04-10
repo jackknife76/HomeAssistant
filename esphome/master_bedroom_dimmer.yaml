@@ -36,7 +36,9 @@ logger:
 api:
 
 ota:
-  safe_mode: True
+  - platform: "esphome"
+
+safe_mode:
 
 # My dimmer used the hardware serial port on the alternate pins
 uart:

@@ -1,0 +1,70 @@
+- id: '1652207658770'
+  alias: Upstairs Thermostat 6am
+  description: ''
+  use_blueprint:
+    path: homeassistant/thermostat.yaml
+    input:
+      set_time: 06:00:00
+      thermostat_selection: climate.upstairs_thermostat
+      below_65_heat: 69
+      above_95_heat: 71
+- id: '1652208092887'
+  alias: Upstairs thermostat 7:00pm
+  description: ''
+  use_blueprint:
+    path: homeassistant/thermostat.yaml
+    input:
+      set_time: '19:00:00'
+      thermostat_selection: climate.upstairs_thermostat
+      below_65_heat: 69
+      above_95_heat: 66
+      below_65_cool: 73
+      65_80_heat: 66
+      65_80_cool: 72
+      80_95_heat: 66
+      80_95_cool: 72
+      above_95_cool: 71
+- id: '1652208391264'
+  alias: Upstairs Thermostat 10pm
+  description: ''
+  use_blueprint:
+    path: homeassistant/thermostat.yaml
+    input:
+      set_time: '22:00:00'
+      thermostat_selection: climate.upstairs_thermostat
+      below_65_heat: 67
+      below_65_cool: 74
+      65_80_heat: 66
+      65_80_cool: 72
+      80_95_heat: 66
+      80_95_cool: 72
+      above_95_heat: 65
+      above_95_cool: 72
+- id: '1652209999629'
+  alias: Upstairs Thermostat 7:30am
+  description: ''
+  use_blueprint:
+    path: homeassistant/thermostat.yaml
+    input:
+      set_time: 07:30:00
+      thermostat_selection: climate.upstairs_thermostat
+      below_65_heat: 66
+      65_80_heat: 66
+      80_95_heat: 66
+      above_95_heat: 65
+- id: '1652210347983'
+  alias: upstairs Thermostat 3am
+  description: ''
+  use_blueprint:
+    path: homeassistant/thermostat.yaml
+    input:
+      set_time: 05:00:00
+      thermostat_selection: climate.upstairs_thermostat
+      below_65_heat: 67
+      below_65_cool: 76
+      65_80_heat: 66
+      65_80_cool: 72
+      80_95_heat: 66
+      80_95_cool: 72
+      above_95_heat: 66
+      above_95_cool: 72

@@ -1,0 +1,49 @@
+
+- cal_id: family09994415806485642691@group.calendar.google.com
+  entities:
+  - device_id: family
+    ignore_availability: true
+    name: Family
+    track: true
+
+- cal_id: addressbook#contacts@group.v.calendar.google.com
+  entities:
+  - device_id: birthdays
+    ignore_availability: true
+    name: Birthdays
+    track: true
+
+- cal_id: en.usa#holiday@group.v.calendar.google.com
+  entities:
+  - device_id: holidays_in_united_states
+    ignore_availability: true
+    name: Holidays in United States
+    track: true
+
+- cal_id: mitraea@gmail.com
+  entities:
+  - device_id: mitraea_gmail_com
+    ignore_availability: true
+    name: mitraea@gmail.com
+    track: true
+
+- cal_id: nomnumsushi@gmail.com
+  entities:
+  - device_id: nomnumsushi_gmail_com
+    ignore_availability: true
+    name: nomnumsushi@gmail.com
+    track: true
+
+- cal_id: thomas.robinett@gmail.com
+  entities:
+  - device_id: thomas_robinett_gmail_com
+    ignore_availability: true
+    name: thomas.robinett@gmail.com
+    track: true
+
+- cal_id: dpetl8fnt6931k3vnm435madr57fr43o@import.calendar.google.com
+  entities:
+  - device_id: family
+    ignore_availability: true
+    name: Family
+    track: true

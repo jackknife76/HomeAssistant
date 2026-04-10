@@ -9,4 +9,4 @@
 # I don't store my input boolean entities in my YAML configuration,
 # instead I manage them via the Home Assistant frontend.
 #
-input_boolean: !include_dir_named input_booleans
+input_boolean: !include_dir_merge_named ../entities/input_booleans

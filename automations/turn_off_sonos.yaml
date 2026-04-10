@@ -1,0 +1,13 @@
+- id: '1652023778790'
+  alias: Turn off sonos
+  description: ''
+  trigger:
+  - platform: time
+    at: 06:30:00
+  condition: []
+  action:
+  - service: media_player.media_stop
+    data: {}
+    target:
+      entity_id: media_player.master_bedroom
+  mode: single

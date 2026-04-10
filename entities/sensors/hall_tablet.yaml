@@ -1,7 +1,7 @@
 - platform: rest
-  name: Kitchen Tablet
+  name: Hall Tablet
   json_attributes:
-    - isScreenOn
+    - getScreenOn
     - batteryLevel
     - kioskMode
     - screenBrightness
@@ -20,5 +20,5 @@
     - startUrl
     - currentPage
   resource: !secret tablet_info
-  value_template: '{{ value_json.isScreenOn }}'
+  value_template: '{{ value_json.getScreenOn }}'
   scan_interval: 10
