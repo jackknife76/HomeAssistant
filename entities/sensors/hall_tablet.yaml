@@ -20,5 +20,5 @@
     - startUrl
     - currentPage
   resource: !secret tablet_info
-  value_template: '{{ value_json.getScreenOn }}'
+  value_template: '{{ value_json.getScreenOn | default(false) }}'
   scan_interval: 10

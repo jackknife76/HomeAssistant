@@ -1,3 +1,0 @@
-# Example configuration.yaml entry
-  platform: openweathermap
-  api_key: !secret openweather_api

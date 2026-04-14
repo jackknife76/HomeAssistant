@@ -22,5 +22,5 @@ homeassistant:
       trusted_networks:
         - 192.168.86.0/24
         - 10.1.30.0/24
-      trusted_users: !secret my_trusted_users1
+#      trusted_users: !secret my_trusted_users1
         

@@ -1,2 +1,171 @@
-
-
+- id: '1652213596308'
+  alias: Downstairs 8pm
+  description: ''
+  use_blueprint:
+    path: homeassistant/thermostat.yaml
+    input:
+      set_time: '20:01:00'
+      thermostat_selection: climate.downstairs_thermostat
+      below_65_cool: 74
+      65_80_cool: 74
+      80_95_cool: 74
+      above_95_cool: 74
+      above_95_heat: 66
+      80_95_heat: 69
+      below_65_heat: 69
+- id: '1652213689910'
+  alias: Downstairs Thermostat 8am
+  description: ''
+  use_blueprint:
+    path: homeassistant/thermostat.yaml
+    input:
+      set_time: 08:00:00
+      thermostat_selection: climate.downstairs_thermostat
+      below_65_heat: 73
+      below_65_cool: 78
+      65_80_heat: 71
+      65_80_cool: 76
+      80_95_heat: 70
+      80_95_cool: 76
+      above_95_cool: 76
+      above_95_heat: 71
+- id: hysteresis_downstairs_cool_on
+  alias: Downstairs Cooling Hysteresis On
+  trigger:
+  - platform: template
+    value_template: '{{ state_attr(''climate.downstairs_thermostat'', ''current_temperature'')
+      | float(0) > state_attr(''climate.downstairs_thermostat'', ''target_temperature'')
+      | float(0) + 2 }}'
+  condition:
+  - condition: not
+    conditions:
+    - condition: state
+      entity_id: climate.downstairs_thermostat
+      state: cool
+  action:
+  - service: climate.set_hvac_mode
+    target:
+      entity_id: climate.downstairs_thermostat
+    data:
+      hvac_mode: cool
+- id: hysteresis_downstairs_cool_off
+  alias: Downstairs Cooling Hysteresis Off
+  trigger:
+  - platform: template
+    value_template: '{{ state_attr(''climate.downstairs_thermostat'', ''current_temperature'')
+      | float(0) < state_attr(''climate.downstairs_thermostat'', ''target_temperature'')
+      | float(0) }}'
+  condition:
+  - condition: state
+    entity_id: climate.downstairs_thermostat
+    state: cool
+  action:
+  - service: climate.turn_off
+    target:
+      entity_id: climate.downstairs_thermostat
+- id: '1652207658770'
+  alias: Upstairs Thermostat 6am
+  description: ''
+  use_blueprint:
+    path: homeassistant/thermostat.yaml
+    input:
+      set_time: 05:30:00
+      thermostat_selection: climate.upstairs_thermostat
+      below_65_heat: 73
+      above_95_heat: 71
+      65_80_heat: 73
+      80_95_heat: 73
+- id: '1652208092887'
+  alias: Upstairs thermostat 7:00pm
+  description: ''
+  use_blueprint:
+    path: homeassistant/thermostat.yaml
+    input:
+      set_time: '19:00:00'
+      thermostat_selection: climate.upstairs_thermostat
+      below_65_heat: 69
+      above_95_heat: 66
+      below_65_cool: 75
+      65_80_heat: 66
+      65_80_cool: 75
+      80_95_heat: 66
+      80_95_cool: 75
+      above_95_cool: 71
+- id: '1652208391264'
+  alias: Upstairs Thermostat 10pm
+  description: ''
+  use_blueprint:
+    path: homeassistant/thermostat.yaml
+    input:
+      set_time: '22:00:00'
+      thermostat_selection: climate.upstairs_thermostat
+      below_65_heat: 67
+      below_65_cool: 74
+      65_80_heat: 66
+      65_80_cool: 74
+      80_95_heat: 66
+      80_95_cool: 72
+      above_95_heat: 65
+      above_95_cool: 71
+- id: '1652209999629'
+  alias: Upstairs Thermostat 7:30am
+  description: ''
+  use_blueprint:
+    path: homeassistant/thermostat.yaml
+    input:
+      set_time: 07:30:00
+      thermostat_selection: climate.t6_pro_z_wave_programmable_thermostat
+      below_65_heat: 66
+      65_80_heat: 66
+      80_95_heat: 66
+      above_95_heat: 65
+- id: '1652210347983'
+  alias: upstairs Thermostat 5am
+  description: ''
+  use_blueprint:
+    path: homeassistant/thermostat.yaml
+    input:
+      set_time: 05:00:00
+      thermostat_selection: climate.upstairs_thermostat
+      below_65_heat: 67
+      below_65_cool: 76
+      65_80_heat: 66
+      65_80_cool: 72
+      80_95_heat: 66
+      80_95_cool: 72
+      above_95_heat: 66
+      above_95_cool: 72
+- id: hysteresis_upstairs_cool_on
+  alias: Upstairs Cooling Hysteresis On
+  trigger:
+  - platform: template
+    value_template: '{{ state_attr(''climate.upstairs_thermostat'', ''current_temperature'')
+      | float(0) > state_attr(''climate.upstairs_thermostat'', ''target_temperature'')
+      | float(0) + 2 }}'
+  condition:
+  - condition: not
+    conditions:
+    - condition: state
+      entity_id: climate.upstairs_thermostat
+      state: cool
+  action:
+  - service: climate.set_hvac_mode
+    target:
+      entity_id: climate.upstairs_thermostat
+    data:
+      hvac_mode: cool
+- id: hysteresis_upstairs_cool_off
+  alias: Upstairs Cooling Hysteresis Off
+  trigger:
+  - platform: template
+    value_template: '{{ state_attr(''climate.upstairs_thermostat'', ''current_temperature'')
+      | float(0) < state_attr(''climate.upstairs_thermostat'', ''target_temperature'')
+      | float(0) }}'
+  condition:
+  - condition: state
+    entity_id: climate.upstairs_thermostat
+    state: cool
+  action:
+  - service: climate.turn_off
+    target:
+      entity_id: climate.upstairs_thermostat

@@ -1,7 +1,0 @@
-
-- platform: template
-  sensors:
-    hall_battery:
-      friendly_name: "Hall Tablet Battery Level"
-      unit_of_measurement: '%'
-      value_template: '{{ states.sensor.hall_tablet.attributes["batteryLevel"] }}'
