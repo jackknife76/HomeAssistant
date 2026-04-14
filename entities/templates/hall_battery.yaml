@@ -1,4 +1,6 @@
 - sensor:
   - name: "Hall Tablet Battery Level"
-    unit_of_measurement: '%'
-    state: '{{ states.sensor.hall_tablet.attributes["batteryLevel"] | default(0) }}'
+    unit_of_measurement: "%"
+    device_class: battery
+    state: >-
+      {{ state_attr('sensor.hall_tablet', 'batteryLevel') | float(0) }}

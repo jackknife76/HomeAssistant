@@ -7,4 +7,12 @@
 # https://www.home-assistant.io/lovelace/
 # https://www.home-assistant.io/lovelace/yaml-mode/
 #
-lovelace: ~
+lovelace:
+  resource_mode: yaml
+  dashboards:
+    floorplan-dashboard:
+      mode: yaml
+      title: Floorplan
+      icon: mdi:floor-plan
+      show_in_sidebar: true
+      filename: entities/floorplan.yaml

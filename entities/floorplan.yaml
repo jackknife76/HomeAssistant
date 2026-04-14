@@ -1,18 +1,20 @@
 title: Floorplan
-path: floorplan
-panel: true
-icon: mdi:floor-plan
-cards:
-  - type: horizontal-stack
+views:
+  - title: Floorplan
+    path: floorplan
+    panel: true
+    icon: mdi:floor-plan
     cards:
-      - type: conditional
-        conditions:
-          - entity: input_select.floorplan_floor
-            state: "1st Floor"
-        card: !include _floorplan_downstairs.yaml
+      - type: horizontal-stack
+        cards:
+          - type: conditional
+            conditions:
+              - entity: input_select.floorplan_floor
+                state: "1st Floor"
+            card: !include _floorplan_downstairs.yaml
 
-      - type: conditional
-        conditions:
-          - entity: input_select.floorplan_floor
-            state: "2nd Floor"
-        card: !include _floorplan_upstairs.yaml
+          - type: conditional
+            conditions:
+              - entity: input_select.floorplan_floor
+                state: "2nd Floor"
+            card: !include _floorplan_upstairs.yaml

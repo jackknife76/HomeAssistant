@@ -18,7 +18,7 @@ elements:
   - type: image
     entity: light.master_bedroom_dimmer
     tap_action:
-      action: Toggle
+      action: toggle
     image: /local/images/floorplan/transparent_square.png
     style:
       top: 71%
