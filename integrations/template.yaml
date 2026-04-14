@@ -1,0 +1,8 @@
+# Templates define modern template entities like sensors, binary sensors,
+# buttons, numbers, and triggered template entities.
+#
+# This loads up my template configurations
+#
+# https://www.home-assistant.io/integrations/template/
+#
+template: !include_dir_merge_list ../entities/templates

@@ -1,0 +1,5 @@
+- sensor:
+  - name: "Mitra Presence"
+    state: '{{ states.input_select.mitra_status_dropdown.state }}'
+  - name: "Tom Presence"
+    state: '{{ states.input_select.tom_status_dropdown.state }}'

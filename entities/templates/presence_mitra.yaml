@@ -1,0 +1,5 @@
+- binary_sensor:
+  - name: "Mitra"
+    state: "{{ is_state('input_boolean.is_mitra_home', 'on') }}"
+    device_class: presence
+    picture: "/local/mitra_picture_bw.jpg"

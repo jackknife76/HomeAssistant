@@ -1,0 +1,5 @@
+# Example configuration.yaml entry
+# NOTE: OpenWeatherMap is now configured via UI integrations
+# platform: openweathermap removed - use Settings > Integrations instead
+#  platform: openweathermap
+#  api_key: !secret openweather_api

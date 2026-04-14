@@ -1,0 +1,5 @@
+- binary_sensor:
+  - name: "Tom"
+    state: "{{ is_state('input_boolean.is_tom_home', 'on') }}"
+    device_class: presence
+    picture: "/local/tom_picture_bw.jpg"
