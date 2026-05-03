@@ -2,19 +2,202 @@ title: Floorplan
 views:
   - title: Floorplan
     path: floorplan
-    panel: true
+    panel: true               # full‑screen view, no header/footer clutter
     icon: mdi:floor-plan
-    cards:
-      - type: horizontal-stack
-        cards:
-          - type: conditional
-            conditions:
-              - entity: input_select.floorplan_floor
-                state: "1st Floor"
-            card: !include _floorplan_downstairs.yaml
 
-          - type: conditional
-            conditions:
-              - entity: input_select.floorplan_floor
-                state: "2nd Floor"
-            card: !include _floorplan_upstairs.yaml
+    cards:
+      # --------------------------------------------------------------
+      # 1️⃣  First‑Floor layout (conditional)
+      # --------------------------------------------------------------
+      - type: conditional
+        conditions:
+          - entity: input_select.floorplan_floor
+            state: 1st Floor
+        card:
+          type: picture-elements
+          image: /local/images/floorplan/downstairs_lights_on.png
+          elements:
+            # Light – master bedroom dimmer
+            - entity: light.master_bedroom_dimmer
+              type: image
+              image: /local/images/floorplan/transparent_square.png
+              style:
+                left: 65%
+                top: 48%
+              tap_action:
+                action: toggle
+
+            # Switch – front porch
+            - entity: switch.front_porch
+              type: image
+              image: /local/images/floorplan/transparent_square.png
+              style:
+                left: 82%
+                top: 63%
+              tap_action:
+                action: toggle
+
+            # Light – office
+            - entity: light.office_light
+              type: image
+              image: /local/images/floorplan/transparent_square.png
+              style:
+                left: 95%
+                top: 90%
+              tap_action:
+                action: toggle
+
+            # Light – basement
+            - entity: light.basement_light
+              type: image
+              image: /local/images/floorplan/transparent_square.png
+              style:
+                left: 41.5%
+                top: 61%
+              tap_action:
+                action: toggle
+
+            # Car tracker (state‑icon)
+            - entity: device_tracker.toms_car_location_tracker
+              type: state-icon
+              style:
+                left: 20.5%
+                top: 18.5%
+                '--iron-icon-stroke-color': '#969696'
+                background-color: rgba(255,255,255,0.3)
+                border-radius: 50%
+                text-align: center
+
+            # Car charger sensor (state‑icon)
+            - entity: binary_sensor.toms_car_charger_sensor
+              type: state-icon
+              state:
+                'on': mdi:ev-station
+                'off': /local/images/floorplan/transparent_square.png
+              style:
+                left: 20.5%
+                top: 18.5%
+                '--iron-icon-stroke-color': '#969696'
+                background-color: rgba(255,255,255,0.3)
+                border-radius: 50%
+                text-align: center
+
+            # Battery charge label
+            - entity: sensor.toms_car_battery_sensor
+              type: state-label
+              prefix: 'Charge '
+              style:
+                left: 20%
+                top: 10%
+                font-size: 11px
+                font-weight: bold
+                background-color: rgba(255,255,255,0.3)
+                border-radius: 10%
+                color: '#000'
+                text-align: center
+
+            # Outside temperature label
+            - entity: weather.home
+              attribute: temperature
+              type: state-label
+              prefix: 'Outside Temp '
+              suffix: '℉'
+              style:
+                left: 84.5%
+                top: 15%
+                font-size: 11px
+                font-weight: bold
+                background-color: rgba(255,255,255,0.3)
+                border-radius: 10%
+                color: '#000'
+                text-align: center
+
+            # Speed‑test labels (ping / download / upload)
+            - entity: sensor.speedtest_ping
+              type: state-label
+              prefix: 'ping '
+              style:
+                left: 84.5%
+                top: 70%
+                font-size: 11px
+                font-weight: bold
+                background-color: rgba(255,255,255,0.3)
+                border-radius: 10%
+                color: '#000'
+                text-align: center
+            - entity: sensor.speedtest_download
+              type: state-label
+              prefix: 'Dnld '
+              style:
+                left: 84.5%
+                top: 75%
+                font-size: 11px
+                font-weight: bold
+                background-color: rgba(255,255,255,0.3)
+                border-radius: 10%
+                color: '#000'
+                text-align: center
+            - entity: sensor.speedtest_upload
+              type: state-label
+              prefix: 'Upld '
+              style:
+                left: 84.5%
+                top: 80%
+                font-size: 11px
+                font-weight: bold
+                background-color: rgba(255,255,255,0.3)
+                border-radius: 10%
+                color: '#000'
+                text-align: center
+
+            # floor‑select button (switch to 2nd floor)
+            - service: input_select.select_next
+              service_data:
+                entity_id: input_select.floorplan_floor
+              type: service-button
+              title: 2nd Floor
+              style:
+                left: 5%
+                top: 15%
+                background: '#eaeaea'
+                border-radius: 5%
+
+      # --------------------------------------------------------------
+      # 2️⃣  Second‑Floor layout (conditional)
+      # --------------------------------------------------------------
+      - type: conditional
+        conditions:
+          - entity: input_select.floorplan_floor
+            state: 2nd Floor
+        card:
+          type: picture-elements
+          image: /local/images/floorplan/upstairs_lights_on.png
+          elements:
+            # Light – master bedroom dimmer (already toggles)
+            - entity: light.master_bedroom_dimmer
+              type: image
+              image: /local/images/floorplan/transparent_square.png
+              style:
+                left: 65%
+                top: 48%
+              tap_action:
+                action: toggle
+
+            # floor‑select button (switch back to 1st floor)
+            - service: input_select.select_next
+              service_data:
+                entity_id: input_select.floorplan_floor
+              type: service-button
+              title: 1st Floor
+              style:
+                left: 5%
+                top: 15%
+                background: '#eaeaea'
+                border-radius: 5%
+
+      # --------------------------------------------------------------
+      # 3️⃣  Fallback – show a generic floor‑plan image if no condition matches
+      # --------------------------------------------------------------
+      - type: picture-elements
+        image: /local/images/floorplan/downstairs_lights_on.png
+        elements: []   # empty – just a placeholder so the view never blanks out

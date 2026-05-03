@@ -8,7 +8,10 @@
 # https://www.home-assistant.io/lovelace/yaml-mode/
 #
 lovelace:
-  resource_mode: yaml
+  mode: yaml
+  resources:
+    - url: /local/floorplan-card.js          # <-- custom card JS
+      type: module
   dashboards:
     floorplan-dashboard:
       mode: yaml
